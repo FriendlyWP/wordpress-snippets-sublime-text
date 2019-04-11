@@ -1,22 +1,20 @@
 <snippet>
 	<content><![CDATA[
-\$${3:query_name} = new WP_Query(
+\$${1:query_name} = new WP_Query(
 	array(
-		'post_type'      => '${1:post}',
-		'cat'            => '${2:22,47,67}',
-		'orderby'        => '${3:name}',
-		'order'          => '${4:ASC}',
-		'hide_empty'     => ${5:1},
-		'depth'          => ${6:1},
+		'post_type'      => '${2:post}',
+		'cat'            => '${3:22,47,67}',
+		'orderby'        => '${4:menu_order}',
+		'order'          => '${5:ASC}',
 		'posts_per_page' => ${7:-1},
 	)
 );
-if ( \$${3:query_name}->have_posts() ):
-	while ( \$${3:query_name}->have_posts() ): 
-		\$${3:query_name}->the_post(); 
+if ( \$${1:query_name}->have_posts() ) {
+	while ( \$${1:query_name}->have_posts() ){ 
+		\$${1:query_name}->the_post(); 
 		the_content(); 
-	endwhile; 
-endif;
+	} // query endwhile
+} // query endif
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>wp_query</tabTrigger>
